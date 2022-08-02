@@ -1,0 +1,69 @@
+.day {
+  background: #f9f3ee;
+  color: #171e27;
+}
+
+.night {
+  background: #171e27;
+  color: #f9f3ee;
+}
+
+.cw-container {
+  width: 24rem;
+  max-width: 100%;
+  /* background: rgb(255, 255, 255); */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+  padding: 1rem 0;
+}
+
+.today-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-small {
+  font-size: 1rem;
+}
+.text-big {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.temperature-row {
+  display: flex;
+  justify-content: center;
+}
+
+.temperature {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 6rem;
+}
+
+.celcius {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.parameter-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}

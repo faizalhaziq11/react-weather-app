@@ -20,16 +20,28 @@ const Search = (props) => {
   return (
     <React.Fragment>
       <Card className={styles.input}>
-        <form onSubmit={inputSubmitHandler}>
-          <label htmlFor="search">Search</label>
+        <form
+          onSubmit={inputSubmitHandler}
+          className={styles["form-container"]}
+        >
+          <label htmlFor="search">
+            Weather Forecast <br />
+          </label>
           <input
             id="search"
             type="text"
+            placeholder="Enter city"
             value={enteredInput}
             onChange={inputChangeHandler}
           />
           <Button type="submit">Enter</Button>
         </form>
+        <span>
+          Powered by{" "}
+          <a href="https://www.weatherapi.com/" title="Free Weather API">
+            WeatherAPI.com
+          </a>
+        </span>
       </Card>
     </React.Fragment>
   );

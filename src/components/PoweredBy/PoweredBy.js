@@ -12,6 +12,13 @@ const PoweredBy = () => {
           border="0"
         />
       </a>
+      <a target="_blank" href="https://icons8.com/icon/OFU5h8HeWK3z/clouds">
+        Clouds
+      </a>{" "}
+      icon by{" "}
+      <a target="_blank" href="https://icons8.com">
+        Icons8
+      </a>
     </div>
   );
 };

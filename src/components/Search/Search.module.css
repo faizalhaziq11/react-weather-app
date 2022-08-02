@@ -1,27 +1,36 @@
 .input {
   margin: 2rem auto;
   padding: 1rem;
-  width: 90%;
+  width: 50%;
   max-width: 40rem;
 }
 
 .input label {
   display: block;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
+  /* margin-bottom: 0.5rem; */
 }
 
 .input input {
   font: inherit;
   display: block;
-  width: 100%;
+  width: 50%;
   border: 1px solid #ccc;
   background-color: #ccc;
   padding: 0.15rem;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
+  /* margin-bottom: 0.5rem; */
 }
 
 .input input:focus {
   outline: none;
   border-color: #4f005f;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }

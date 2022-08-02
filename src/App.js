@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState } from "react";
 import "./App.css";
 import Search from "./components/Search/Search";
 import { WEATHER_API_URL, API_KEY } from "./lib/api";
@@ -27,20 +27,21 @@ function App() {
         // console.log(weatherResponse);
         // console.log(forecastResponse);
 
+        setCurrentWeather({ ...weatherResponse });
         setForecastWeather({ ...forecastResponse });
       }
     );
 
-    const response = await fetch(
-      `${WEATHER_API_URL}/current.json?key=${API_KEY}&q=${location}&aqi=no`
-    );
-    const data = await response.json();
+    // const response = await fetch(
+    //   `${WEATHER_API_URL}/current.json?key=${API_KEY}&q=${location}&aqi=no`
+    // );
+    // const data = await response.json();
 
-    if (!response.ok) {
-      throw new Error(data.message || "Could not fetch weather data");
-    }
+    // if (!response.ok) {
+    //   throw new Error(data.message || "Could not fetch weather data");
+    // }
 
-    setCurrentWeather(data);
+    // setCurrentWeather(data);
   };
 
   return (

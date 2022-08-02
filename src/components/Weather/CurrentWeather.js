@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "../UI/Card";
 import styles from "./CurrentWeather.module.css";
 
 const CurrentWeather = (props) => {
@@ -7,8 +6,8 @@ const CurrentWeather = (props) => {
 
   const getToday = new Date(location.localtime);
   const options = { year: "numeric", month: "short", day: "numeric" };
-  const currentTime = getToday.toLocaleTimeString("en-US");
   const currentDate = getToday.toLocaleDateString("en-US", options);
+  // const currentTime = getToday.toLocaleTimeString("en-US");
 
   const bgColor = current.is_day === 1 ? "day" : "night";
 
@@ -18,6 +17,7 @@ const CurrentWeather = (props) => {
         <img
           className={`${styles["condition-img"]}`}
           src={current.condition.icon}
+          alt={current.condition.text}
         />
         <div className={`${styles["today-container"]}`}>
           <span className={`${styles["text-big"]}`}>Today</span>
@@ -34,11 +34,11 @@ const CurrentWeather = (props) => {
         </div>
         <p>{`${location.name}, ${location.country}`}</p>
         <div className={styles["parameter-row"]}>
-          <img src="./icons8-windsock-48.png" />
+          <img src="./icons8-windsock-48.png" alt="Wind speed sensor" />
           <span>{current.wind_kph} kph</span>
-          <img src="./icons8-hygrometer-48.png" />
+          <img src="./icons8-hygrometer-48.png" alt="Air humidity sensor" />
           <span>{current.humidity} %</span>
-          <img src="./icons8-clouds-48.png" />
+          <img src="./icons8-clouds-48.png" alt="Cloud covering" />
           <span>{current.cloud} %</span>
         </div>
         <p>Sky condition is {current.condition.text.toLowerCase()}</p>

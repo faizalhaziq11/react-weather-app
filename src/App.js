@@ -4,7 +4,6 @@ import Search from "./components/Search/Search";
 import { WEATHER_API_URL, API_KEY } from "./lib/api";
 import CurrentWeather from "./components/Weather/CurrentWeather";
 import ForecastWeather from "./components/Weather/ForecastWeather";
-import LoadingSpinner from "./components/UI/LoadingSpinner";
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);

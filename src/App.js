@@ -4,12 +4,21 @@ import Search from "./components/Search/Search";
 import { WEATHER_API_URL, API_KEY } from "./lib/api";
 import CurrentWeather from "./components/Weather/CurrentWeather";
 import ForecastWeather from "./components/Weather/ForecastWeather";
+import LoadingSpinner from "./components/UI/LoadingSpinner";
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecastWeather, setForecastWeather] = useState(null);
+  const [noData, setNoData] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const searchWeather = async (location) => {
+    if (location === "") {
+      return setNoData(true);
+    }
+
+    setLoading(true);
+
     const currentWeatherReq = fetch(
       `${WEATHER_API_URL}/current.json?key=${API_KEY}&q=${location}&aqi=no`
     );
@@ -31,6 +40,9 @@ function App() {
       }
     );
 
+    setLoading(false);
+    setNoData(false);
+
     // const response = await fetch(
     //   `${WEATHER_API_URL}/current.json?key=${API_KEY}&q=${location}&aqi=no`
     // );
@@ -49,9 +61,14 @@ function App() {
         <Search searchWeather={searchWeather} />
         <div className="container">
           {/* <PoweredBy /> */}
-          {/* {!currentWeather && <p>No location is loaded</p>} */}
-          {forecastWeather && <ForecastWeather data={forecastWeather} />}
-          {currentWeather && <CurrentWeather data={currentWeather} />}
+          {loading && <LoadingSpinner />}
+          {noData && <p>No location is loaded</p>}
+          {!noData && forecastWeather && (
+            <ForecastWeather data={forecastWeather} />
+          )}
+          {!noData && currentWeather && (
+            <CurrentWeather data={currentWeather} />
+          )}
         </div>
       </div>
     </Fragment>

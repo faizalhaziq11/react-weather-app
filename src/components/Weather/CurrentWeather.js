@@ -34,11 +34,23 @@ const CurrentWeather = (props) => {
         </div>
         <p>{`${location.name}, ${location.country}`}</p>
         <div className={styles["parameter-row"]}>
-          <img src="./icons8-windsock-48.png" alt="Wind speed sensor" />
+          <img
+            src="./icons8-windsock-48.png"
+            className={styles["parameter-icon"]}
+            alt="Wind speed sensor"
+          />
           <span>{current.wind_kph} kph</span>
-          <img src="./icons8-hygrometer-48.png" alt="Air humidity sensor" />
+          <img
+            src="./icons8-hygrometer-48.png"
+            className={styles["parameter-icon"]}
+            alt="Air humidity sensor"
+          />
           <span>{current.humidity} %</span>
-          <img src="./icons8-clouds-48.png" alt="Cloud covering" />
+          <img
+            src="./icons8-clouds-48.png"
+            className={styles["parameter-icon"]}
+            alt="Cloud sensor"
+          />
           <span>{current.cloud} %</span>
         </div>
         <p>Sky condition is {current.condition.text.toLowerCase()}</p>

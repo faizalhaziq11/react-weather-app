@@ -1,3 +1,7 @@
+* {
+  font-size: 1rem;
+}
+
 .App {
   text-align: center;
 }
@@ -23,4 +27,13 @@
   align-items: stretch;
   justify-content: center;
   gap: 1rem;
+  padding: 0 1rem;
+}
+
+@media screen and (max-width: 50rem) {
+  .container {
+    flex-direction: column-reverse;
+    align-items: center;
+    /* justify-content: center; */
+  }
 }

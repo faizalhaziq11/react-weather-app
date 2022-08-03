@@ -1,3 +1,10 @@
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .input {
   margin: 2rem auto;
   padding: 1rem;
@@ -28,9 +35,15 @@
   border-color: #4f005f;
 }
 
-.form-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+@media screen and (max-width: 40rem) {
+  .form-container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0rem;
+    padding-bottom: 1rem;
+  }
+
+  .input input {
+    width: 100%;
+  }
 }

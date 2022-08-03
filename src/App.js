@@ -8,7 +8,6 @@ import ForecastWeather from "./components/Weather/ForecastWeather";
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecastWeather, setForecastWeather] = useState(null);
-  const [errResponse, setErrResponse] = useState(null);
   const [noData, setNoData] = useState(true);
   const [error, setError] = useState(false);
 
@@ -30,11 +29,8 @@ function App() {
         const weatherResponse = await response[0].json();
         const forecastResponse = await response[1].json();
 
-        console.log(weatherResponse);
-
         if (!response[0].ok && !response[1].ok) {
           setNoData(false);
-          setErrResponse({ ...weatherResponse });
 
           throw new Error(
             `(${weatherResponse.error.message} ${response[0].status})`
@@ -51,7 +47,6 @@ function App() {
       });
 
     setNoData(false);
-    console.log(currentWeather);
   };
 
   return (

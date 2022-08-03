@@ -11,6 +11,7 @@ function App() {
   const [forecastWeather, setForecastWeather] = useState(null);
   const [noData, setNoData] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const searchWeather = async (location) => {
     if (location === "") {
@@ -27,19 +28,23 @@ function App() {
       `${WEATHER_API_URL}/forecast.json?key=${API_KEY}&q=${location}&days=10&aqi=no&alerts=no`
     );
 
-    Promise.all([currentWeatherReq, forecastWeatherReq]).then(
-      async (response) => {
+    Promise.all([currentWeatherReq, forecastWeatherReq])
+      .then(async (response) => {
         const weatherResponse = await response[0].json();
         const forecastResponse = await response[1].json();
 
-        // console.log(weatherResponse);
-        // console.log(forecastResponse);
+        if (!weatherResponse.ok && !forecastResponse.ok) {
+          throw new Error(`(${response[0].status})`);
+        }
 
         setCurrentWeather({ ...weatherResponse });
         setForecastWeather({ ...forecastResponse });
-      }
-    );
-
+      })
+      .catch((error) => {
+        setError(error.message);
+        console.log(error.message);
+        return setNoData(true);
+      });
     setLoading(false);
     setNoData(false);
 
@@ -60,9 +65,8 @@ function App() {
       <div className="App">
         <Search searchWeather={searchWeather} />
         <div className="container">
-          {/* <PoweredBy /> */}
           {loading && <LoadingSpinner />}
-          {noData && <p>No location is loaded</p>}
+          {noData && <p>No location is loaded {error}</p>}
           {!noData && forecastWeather && (
             <ForecastWeather data={forecastWeather} />
           )}

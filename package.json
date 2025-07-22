@@ -12,7 +12,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "parcel",
+    "start": "parcel --open",
     "build": "parcel build",
     "test": "jest",
     "lint": "eslint src"
@@ -36,6 +36,8 @@
     ]
   },
   "devDependencies": {
+    "@parcel/packager-raw-url": "^2.15.4",
+    "@parcel/transformer-webmanifest": "^2.15.4",
     "babel-jest": "^27.4.2",
     "babel-preset-react-app": "^10.0.1",
     "eslint": "^8.3.0",

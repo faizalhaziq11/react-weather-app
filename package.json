@@ -13,7 +13,7 @@
   "scripts": {
     "start": "rsbuild dev --port 1234 --open",
     "build": "rsbuild build",
-    "preview": "rsbuild preview"
+    "preview": "rsbuild preview --port 8080 --open"
   },
   "eslintConfig": {
     "extends": [

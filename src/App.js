@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import "./App.css";
 import Search from "./components/Search/Search";
-import { WEATHER_API_URL, API_KEY } from "./lib/api";
+import { WEATHER_API_URL, API_KEY, getCurrentWeather, getForecastWeather } from "./lib/api";
 import CurrentWeather from "./components/Weather/CurrentWeather";
 import ForecastWeather from "./components/Weather/ForecastWeather";
 
@@ -16,20 +16,15 @@ function App() {
       setNoData(true);
     }
 
-    const currentWeatherReq = fetch(
-      `${WEATHER_API_URL}/current.json?key=${API_KEY}&q=${location}&aqi=no`
-    );
-
-    const forecastWeatherReq = fetch(
-      `${WEATHER_API_URL}/forecast.json?key=${API_KEY}&q=${location}&days=10&aqi=no&alerts=no`
-    );
+    const currentWeatherReq = getCurrentWeather(location);
+    const forecastWeatherReq = getForecastWeather(location)
 
     Promise.all([currentWeatherReq, forecastWeatherReq])
       .then(async (response) => {
-        const weatherResponse = await response[0].json();
-        const forecastResponse = await response[1].json();
+        const weatherResponse = await response[0].data;
+        const forecastResponse = await response[1].data;
 
-        if (!response[0].ok && !response[1].ok) {
+        if (response[0].status !== 200 && !response[1].status !== 200) {
           setNoData(false);
 
           throw new Error(
@@ -41,9 +36,9 @@ function App() {
         setForecastWeather({ ...forecastResponse });
       })
       .catch((error) => {
-        setError(error.message);
+        setError(error);
         setNoData(true);
-        console.log(error.message);
+        console.log(error);
       });
 
     setNoData(false);

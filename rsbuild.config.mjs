@@ -11,16 +11,15 @@ export default defineConfig({
     proxy: {
       '/weather-api':
       {
-        target:
-          'https://api.weatherapi.com/v1',
+        target: "https://api.weatherapi.com/v1/",
         changeOrigin: true,
-
+        pathRewrite: { '^/weather-api': '' }
       },
-      '/foo/external': {
-        target: 'https://jsonplaceholder.typicode.com',
-        changeOrigin: true,
-        pathRewrite: { '^/foo/external': '' },
-      },
+      // '/foo/external': {
+      //   target: import.meta.env.EXTERNAL_API_URL,
+      //   changeOrigin: true,
+      //   pathRewrite: { '^/foo/external': '' },
+      // },
     }
   },
   output: {
@@ -28,4 +27,5 @@ export default defineConfig({
       root: 'build',
     },
   },
+  environments: {}
 });

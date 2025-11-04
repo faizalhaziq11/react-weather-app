@@ -7,7 +7,6 @@ export default defineConfig({
     template: './public/index.html',
   },
   server: {
-    base: '/foo',
     proxy: {
       '/weather-api':
       {
@@ -15,11 +14,6 @@ export default defineConfig({
         changeOrigin: true,
         pathRewrite: { '^/weather-api': '' }
       },
-      // '/foo/external': {
-      //   target: import.meta.env.EXTERNAL_API_URL,
-      //   changeOrigin: true,
-      //   pathRewrite: { '^/foo/external': '' },
-      // },
     }
   },
   output: {

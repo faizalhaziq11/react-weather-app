@@ -24,5 +24,5 @@ export const getForecastWeather = (location = "") => {
     alerts: "no"
   });
 
-  return apiClient.get(baseUrl + 'forecast.json?' + params)
+  return apiClient.get('/weather-api' + 'forecast.json?' + params)
 }

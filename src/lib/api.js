@@ -1,6 +1,6 @@
 import { apiClient } from "../helper/requestHelper";
 
-const baseUrl = import.meta.env.PUBLIC_WEATHER_API_URL;
+// const baseUrl = import.meta.env.PUBLIC_WEATHER_API_URL;
 const apiKey = import.meta.env.PUBLIC_WEATHER_API_KEY;
 
 export const getCurrentWeather = (location = "") => {
@@ -11,7 +11,7 @@ export const getCurrentWeather = (location = "") => {
     aqi: "no"
   });
 
-  return apiClient.get('/weather-api' + 'current.json?' + params)
+  return apiClient.get('/weather-api' + '/current.json?' + params)
 }
 
 export const getForecastWeather = (location = "") => {
@@ -24,5 +24,5 @@ export const getForecastWeather = (location = "") => {
     alerts: "no"
   });
 
-  return apiClient.get('/weather-api' + 'forecast.json?' + params)
+  return apiClient.get('/weather-api' + '/forecast.json?' + params)
 }

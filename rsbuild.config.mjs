@@ -10,7 +10,7 @@ export default defineConfig({
     proxy: {
       '/weather-api':
       {
-        target: "https://api.weatherapi.com/v1/",
+        target: "https://api.weatherapi.com/v1",
         changeOrigin: true,
         pathRewrite: { '^/weather-api': '' }
       },

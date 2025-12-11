@@ -1,6 +1,6 @@
 import { apiClient } from "../helper/requestHelper";
 
-const baseUrl = import.meta.env.MODE === 'development' ? import.meta.env.PUBLIC_WEATHER_API_URL : '/weather-api';;
+const baseUrl = import.meta.env.MODE === 'production' ? import.meta.env.PUBLIC_WEATHER_API_URL : '/weather-api';;
 const apiKey = import.meta.env.PUBLIC_WEATHER_API_KEY;
 
 export const getCurrentWeather = (location = "") => {

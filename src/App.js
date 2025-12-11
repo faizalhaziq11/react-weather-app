@@ -11,6 +11,12 @@ function App() {
   const [noData, setNoData] = useState(true);
   const [error, setError] = useState(false);
 
+  if (import.meta.env.MODE === 'development') {
+    console.log('this is development mode');
+  }
+
+  console.log('API Key:', import.meta.env.MODE);
+
   const searchWeather = async (location) => {
     if (location === "") {
       setNoData(true);

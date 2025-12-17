@@ -1,6 +1,9 @@
 import { apiClient } from "../helper/requestHelper";
 
-const baseUrl = import.meta.env.MODE === 'production' ? import.meta.env.PUBLIC_WEATHER_API_URL : '/weather-api';
+const baseUrl =
+  import.meta.env.MODE === "production"
+    ? import.meta.env.PUBLIC_WEATHER_API_URL
+    : "/weather-api";
 const apiKey = import.meta.env.PUBLIC_WEATHER_API_KEY;
 
 export const getCurrentWeather = (location = "") => {
@@ -8,21 +11,21 @@ export const getCurrentWeather = (location = "") => {
   const params = new URLSearchParams({
     key: apiKey,
     q: sanitizedLocation,
-    aqi: "no"
+    aqi: "no",
   });
 
-  return apiClient.get(baseUrl + '/current.json?', params)
-}
+  return apiClient.get(baseUrl + "/current.json?", params);
+};
 
 export const getForecastWeather = (location = "") => {
   const sanitizedLocation = encodeURIComponent(location.trim());
   const params = new URLSearchParams({
     key: apiKey,
     q: sanitizedLocation,
-    days: 10,
+    days: 7,
     aqi: "no",
-    alerts: "no"
+    alerts: "no",
   });
 
-  return apiClient.get(baseUrl + '/forecast.json?', params)
-}
+  return apiClient.get(baseUrl + "/forecast.json?", params);
+};

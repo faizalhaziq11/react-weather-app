@@ -1,7 +1,6 @@
 import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 
-console.log(import.meta.env.PASSWORD);
 export default defineConfig({
   plugins: [pluginReact()],
   html: {
@@ -12,7 +11,7 @@ export default defineConfig({
     proxy: {
       '/weather-api':
       {
-        target: "https://api.weatherapi.com/v1",
+        target: import.meta.env.WEATHER_API_URL,
         changeOrigin: true,
         pathRewrite: { '^/weather-api': '' }
       },

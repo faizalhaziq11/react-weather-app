@@ -1,26 +1,14 @@
 import axios from "axios";
 
-const BASE_URL = import.meta.env.PROD ? import.meta.env.PUBLIC_WEATHER_API_URL // e.g. "https://api.themoviedb.org/3"
-  : '/weather-api'; // matches proxy path
-
-// const instance = axios.create({
-//   baseURL: "/weather-api",
-//   timeout: 60000,
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-//   params: {
-//     key: import.meta.env.PUBLIC_WEATHER_API_KEY
-//   }
-// })
-
+const headers = { Accept: "application/json", "Accept-Encoding": "identity" };
 export const apiClient = {
-  get: async function (url, headers = {}) {
+  get: async function (url, params = {}) {
     // console.log(`Making GET request to: ${url}`);
     return axios({
       method: 'GET',
       url: url,
-      headers: headers
+      headers: headers,
+      params: params
     }).then(response => {
       // console.log('API Response:', response);
       return response;

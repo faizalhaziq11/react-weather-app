@@ -15,7 +15,8 @@
   "scripts": {
     "start": "rsbuild dev --port 1234 --open",
     "build": "rsbuild build",
-    "preview": "rsbuild preview --port 8080 --open"
+    "preview": "rsbuild preview --port 8080 --open",
+    "netlify": "netlify dev"
   },
   "eslintConfig": {
     "extends": [

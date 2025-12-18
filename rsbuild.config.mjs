@@ -18,9 +18,6 @@ export default defineConfig({
     }
   },
   output: {
-    distPath: {
-      root: 'build',
-    },
     polyfill: 'usage'
   },
   environments: {}

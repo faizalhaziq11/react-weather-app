@@ -27,3 +27,6 @@ dist
 
 # environment
 .env
+
+# Local Netlify folder
+.netlify

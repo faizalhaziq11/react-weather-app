@@ -1,0 +1,40 @@
+@import "../../../index.css";
+
+.today-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.today-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hourly-container{
+    overflow-x: auto;
+}
+
+.hourly-forecast {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.hourly{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.condition{
+    font-size: 10px;
+}

@@ -1,9 +1,20 @@
+@import "./index.css";
+
 * {
   font-size: 1rem;
 }
 
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  max-width: var(--device-base);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .App-header {
@@ -21,19 +32,59 @@
   color: #61dafb;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: center;
-  gap: 1rem;
+.search-container {
+  width: 100%;
   padding: 0 1rem;
 }
 
-@media screen and (max-width: 50rem) {
+.weather-container {
+  display: grid;
+  grid-template-areas: 
+  "current today today";
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.current {
+  grid-area: current;
+}
+
+.today {
+  grid-area: today;
+}
+
+.weekly {
+  width: 100%;
+  padding: 0 1rem;
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: var(--device-tablet)) {
   .container {
     flex-direction: column-reverse;
     align-items: center;
     /* justify-content: center; */
   }
 }
+
+@media screen and (max-width: var(--device-mobile)) {
+  .App{
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: var(--device-tablet)) {
+  .App{
+    max-width: var(--device-tablet);
+  }
+}
+
+@media screen and (max-width: var(--device-laptop)) {
+  .App{
+    max-width: var(--device-laptop);
+  }
+}
+

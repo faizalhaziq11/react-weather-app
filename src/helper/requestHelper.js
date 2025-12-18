@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const headers = { Accept: "application/json", "Accept-Encoding": "identity" };
+const headers = { Accept: "application/json" };
 export const apiClient = {
   get: async function (url, params = {}) {
     // console.log(`Making GET request to: ${url}`);

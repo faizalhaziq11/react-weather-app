@@ -1,13 +1,92 @@
+/* styling css */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root{
+  /* Primary Colors */
+--primary-blue: #2D5BFF;
+--primary-gradient: linear-gradient(135deg, #2D5BFF 0%, #36D1DC 100%);
+
+/* Weather Condition Colors */
+--sunny: #FFB347;
+--cloudy: #8E9AAF;
+--rainy: #6C8EA6;
+--stormy: #4A4E69;
+--snowy: #A3B5C5;
+
+/* Status Colors */
+--success: #4CAF50;
+--warning: #FF9800;
+--danger: #F44336;
+--info: #2196F3;
+
+/* Neutral Colors */
+--dark-text: #212121;
+--light-text: #757575;
+--white: #FFFFFF;
+--bg-light: #F8F9FA;
+--bg-dark: #121212;
+
+/* Dark Mode Palette */
+--dark-primary: #1A1A2E;
+--dark-secondary: #16213E;
+--dark-surface: #0F3460;
+
+/* Font Family */
+--primary-font: "Inter", sans-serif;
+--numbers-font: "Space Mono", monospace;
+
+/* Text Styles */
+--h1: 48px, 700, -1.5% tracking;
+--h2: 32px, 600, -1% tracking;
+--h3: 24px, 600, -0.5% tracking;
+--h4: 20px, 500, normal;
+--body-large: 18px, 400, normal;
+--body: 16px, 400, normal;
+--caption: 14px, 400, normal;
+--micro: 12px, 400, 0.5% tracking;
+
+--space-xs: 4px;
+--space-sm: 8px;
+--space-md: 16px;
+--space-lg: 24px;
+--space-xl: 32px;
+--space-xxl: 48px;
+
+--radius-sm: 8px;
+--radius-md: 16px;
+--radius-lg: 24px;
+--radius-xl: 32px;
+--radius-round: 50%;
+
+--device-base: 1200px;
+--device-laptop:1024px;
+--device-tablet: 768px;
+--device-mobile: 480px;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+  font-size: 16px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* 
+  Layout Container 
+  Usage: Wrap your main page content or components in this class to center them 
+  and provide consistent horizontal padding.
+*/
+.main-container {
+  width: 100%;
+  max-width: 1200px; /* Standard wide desktop width */
+  margin-left: auto; /* Centers the container */
+  margin-right: auto;
+  padding-left: var(--space-md); /* Consistent spacing */
+  padding-right: var(--space-md);
 }

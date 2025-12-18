@@ -1,25 +1,44 @@
+@import "../../index.css";
+
 .form-container {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 1rem;
 }
 
 .input {
-  margin: 2rem auto;
+  margin: 1rem 0;
   padding: 1rem;
-  width: 50%;
-  max-width: 40rem;
 }
+
+.inputText {
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.inputText::placeholder {
+  color: #fff;
+}
+
+.inputText:focus {
+  outline: none;
+  border-color: #655989;
+  background: rgba(255, 255, 255, 0.54);
+}
+
 
 .input label {
   display: block;
   font-weight: bold;
   margin: 0.5rem 0;
-  /* margin-bottom: 0.5rem; */
 }
 
-.input input {
+/* .input input {
   font: inherit;
   display: block;
   width: 50%;
@@ -27,8 +46,7 @@
   background-color: #ccc;
   padding: 0.15rem;
   margin: 0.5rem 0;
-  /* margin-bottom: 0.5rem; */
-}
+} */
 
 .input input:focus {
   outline: none;

@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import styles from "./Search.module.css";
-import Card from "../UI/Card";
-import Button from "../UI/Button";
+import React, { useState } from 'react';
+import styles from './Search.module.css';
+import Card from '../UI/Card';
+import Button from '../UI/Button';
 
 const Search = (props) => {
-  const [enteredInput, setEnteredInput] = useState("");
+  const [enteredInput, setEnteredInput] = useState('');
 
   const inputSubmitHandler = (event) => {
     event.preventDefault();
 
     props.searchWeather(enteredInput);
-    setEnteredInput("");
+    setEnteredInput('');
   };
 
   const inputChangeHandler = (event) => {
@@ -22,26 +22,21 @@ const Search = (props) => {
       <Card className={styles.input}>
         <form
           onSubmit={inputSubmitHandler}
-          className={styles["form-container"]}
+          className={styles['form-container']}
         >
-          <label htmlFor="search">
-            Weather Forecast <br />
-          </label>
           <input
-            id="search"
-            type="text"
-            placeholder="Enter city"
+            id='search'
+            type='text'
+            placeholder='Enter city name'
+            className={styles.inputText}
             value={enteredInput}
             onChange={inputChangeHandler}
+            disabled={props.disable}
           />
-          <Button type="submit">Enter</Button>
+          <Button type='submit' disabled={props.disable}>
+            Submit
+          </Button>
         </form>
-        <span>
-          Powered by{" "}
-          <a href="https://www.weatherapi.com/" title="Free Weather API">
-            WeatherAPI.com
-          </a>
-        </span>
       </Card>
     </React.Fragment>
   );

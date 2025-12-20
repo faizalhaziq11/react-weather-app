@@ -1,0 +1,53 @@
+/* Block */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+/* Element: Title */
+.header__title-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.header__title {
+  margin: 0;
+  color: #f9f9f9;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+/* Element: Description */
+.header__description {
+  margin: 0.5rem;
+  color: #f9f9f9;
+  font-size: 0.875rem;
+}
+
+/* Element: Powered by */
+.header__poweredby {
+  color: #f9f9f9;
+  font-size: 0.625rem;
+}
+
+ .header__poweredby a {
+  color: salmon;
+  font-size: 0.625rem;
+ }
+
+/* Element: Logo */
+.header__logo {
+  height: 80px;
+  width: auto;
+  /* Optional: Add a simple animation for that 'expert' feel */
+  transition: transform 0.3s ease;
+}
+
+.header__logo:hover {
+  transform: scale(1.1);
+}

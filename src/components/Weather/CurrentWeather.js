@@ -7,7 +7,6 @@ const CurrentWeather = (props) => {
   const getToday = new Date(location.localtime);
   const options = { year: "numeric", month: "short", day: "numeric" };
   const currentDate = getToday.toLocaleDateString("en-US", options);
-  // const currentTime = getToday.toLocaleTimeString("en-US");
 
   const bgColor = current.is_day === 1 ? "day" : "night";
 

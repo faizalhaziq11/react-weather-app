@@ -1,4 +1,8 @@
-@import "./index.css";
+@import './index.css';
+
+:root {
+  --spacing-base: 10rem;
+}
 
 * {
   font-size: 1rem;
@@ -18,7 +22,7 @@
 }
 
 .App-header {
-  background-color: "";
+  background-color: '';
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -39,8 +43,7 @@
 
 .weather-container {
   display: grid;
-  grid-template-areas: 
-  "current today today";
+  grid-template-areas: 'current today today';
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: repeat(1, minmax(0, 1fr));
   gap: 1rem;
@@ -62,29 +65,36 @@
   margin: 1rem 0;
 }
 
-@media screen and (max-width: var(--device-tablet)) {
+@media screen and (max-width: 1024px) {
+  .App {
+    max-width: calc(var(--device-laptop) - var(--spacing-base));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    max-width: calc(var(--device-tablet) - var(--spacing-base));
+  }
+
   .container {
     flex-direction: column-reverse;
     align-items: center;
     /* justify-content: center; */
   }
-}
 
-@media screen and (max-width: var(--device-mobile)) {
-  .App{
-    max-width: 100%;
+  .weather-container {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-areas: 'current'
+    'today';
   }
 }
 
-@media screen and (max-width: var(--device-tablet)) {
-  .App{
-    max-width: var(--device-tablet);
+@media screen and (max-width: 480px) {
+  .App {
+    max-width: calc(100% - 10%);
+  }
+
+  .search-container {
+    padding: 0;
   }
 }
-
-@media screen and (max-width: var(--device-laptop)) {
-  .App{
-    max-width: var(--device-laptop);
-  }
-}
-

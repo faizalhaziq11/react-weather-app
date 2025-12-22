@@ -33,7 +33,6 @@ function App() {
 
     Promise.all([currentWeatherReq, forecastWeatherReq])
       .then((response) => {
-        console.log(response);
         const weatherResponse = response[0].data;
         const forecastResponse = response[1].data;
 

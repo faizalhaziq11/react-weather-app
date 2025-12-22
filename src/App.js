@@ -16,26 +16,27 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   if (import.meta.env.MODE === 'development') {
-    console.log('this is development mode');
+    // console.log('this is development mode');
   }
 
-  console.log('API Key:', import.meta.env.MODE);
-
   const searchWeather = async (location) => {
-    setIsLoading(true);
     if (location === '') {
       setNoData(true);
+      return;
     }
+
+    setIsLoading(true);
+    setNoData(false);
 
     const currentWeatherReq = getCurrentWeather(location);
     const forecastWeatherReq = getForecastWeather(location);
 
     Promise.all([currentWeatherReq, forecastWeatherReq])
-      .then(async (response) => {
-        const weatherResponse = await response[0].data;
-        const forecastResponse = await response[1].data;
+      .then((response) => {
+        const weatherResponse = response[0].data;
+        const forecastResponse = response[1].data;
 
-        if (response[0].status !== 200 && !response[1].status !== 200) {
+        if (response[0].status !== 200 || response[1].status !== 200) {
           setNoData(false);
 
           throw new Error(
@@ -54,8 +55,6 @@ function App() {
       .finally(() => {
         setIsLoading(false);
       });
-
-    setNoData(false);
   };
 
   return (

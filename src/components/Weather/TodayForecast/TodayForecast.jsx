@@ -1,10 +1,13 @@
 import Card from "../../UI/Card";
 import styles from "./TodayForecast.module.css";
-import React from "react";
+import React, { useState } from "react";
 
 const TodayForecast = (props) => {
   const { forecast } = props.data;
   const today = forecast.forecastday[0];
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEM_PER_PAGE = 8;
 
   const current = new Date();
   const currentHour = current.getHours();
@@ -14,16 +17,24 @@ const TodayForecast = (props) => {
     return forecastHour >= currentHour && forecastHour <= currentHour + 12;
   });
 
+  const indexOfLastItem = currentPage * ITEM_PER_PAGE;
+  const indexOfFirstItem = indexOfLastItem - ITEM_PER_PAGE;
+  const currentItems = filteredForecast.slice(indexOfFirstItem, indexOfLastItem);
+
   return (
     <Card>
       <h2>24 Hours Forecast</h2>
       <div className="">
         <div className={styles["hourly-forecast"]}>
-          {filteredForecast.map((hour) => (
+          {currentItems.map((hour) => (
             <React.Fragment key={hour.time}>
               <HourlyForecast data={hour} />
             </React.Fragment>
           ))}
+        </div>
+        <div className={styles["pagination"]}>
+          <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1} style={{rotate: "180deg"}}>&#10140;</button>
+          <button onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === Math.ceil(filteredForecast.length / ITEM_PER_PAGE)}>&#10140;</button>
         </div>
       </div>
     </Card>

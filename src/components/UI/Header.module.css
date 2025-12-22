@@ -51,3 +51,16 @@
 .header__logo:hover {
   transform: scale(1.1);
 }
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .header__title {
+    font-size: 1.25rem;
+  }
+}
